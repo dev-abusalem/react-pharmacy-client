@@ -1,0 +1,48 @@
+@import "../../../main.scss";
+
+    
+    .table_action_button_medicine_cate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+
+        .table_action_edit_button {
+            padding: 3px;
+            font-size: 1.6rem;
+            background-color: #28a74650!important;
+            color: #fff!important;
+            border-radius: 2px;
+            border: 1px solid #28a746!important;
+            box-shadow: $boxshadow;
+            cursor: pointer;
+            transition: 0.3s all ease-in-out;
+
+
+            &:hover {
+
+                background-color: $bggreen600!important;
+                color: #fff;
+
+            }
+
+        }
+
+        svg:last-child {
+            padding: 3px;
+            font-size: 1.6rem;
+            background-color: rgba(220, 53, 69, .2);
+            color: $bgerror600;
+            border-radius: 2px;
+            border: 1px solid $bgerror600;
+            box-shadow: $boxshadow;
+            cursor: pointer;
+
+
+            &:hover {
+                background-color: $bgerror600;
+                color: #fff;
+            }
+
+        }
+    }

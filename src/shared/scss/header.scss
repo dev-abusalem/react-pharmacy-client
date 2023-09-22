@@ -1,0 +1,55 @@
+header{
+    background-color: #000;
+    color:#fff;
+    position: relative;
+    height: 50px;
+    
+    .brand{
+
+       a{
+            color: #fff;
+            text-decoration: none;
+        h3{
+            line-height: 50px;
+        }
+       }     
+        
+    }
+    .my_profile_header{
+        width: 250px!important;
+        background-color: #fff;
+        position: absolute;
+        top:96%;
+        right: 7%;
+        z-index: 10;
+        padding:1rem;
+        border:1px solid #bbbbbb;
+        color:#000;
+        box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);    }
+}
+.notification_wrapper{
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap:1.5rem;
+    height: 50px;
+    .expaire{
+        color:#fff;
+        text-decoration: none;
+        position: relative;
+        span{
+           
+            color:red;
+            font-weight: 600;
+            position: absolute;
+            top:-50%;
+            right: -20%;
+
+        }
+    }
+}
+
+.hide_myaccount_by_click{
+    display: none;
+}

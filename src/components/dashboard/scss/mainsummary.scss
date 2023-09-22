@@ -1,0 +1,29 @@
+@import "../../../main.scss";
+
+.welcome__message_hide{
+    display: none;
+    
+}
+section{
+
+    .welcome__message_wrapper{
+        background-color:$bggreen100;
+        padding:0.5rem 2rem;
+        border-radius: 3px;
+        border:1px solid $bggreen500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        span{
+            color:$bggreen800;
+
+            &:last-child{
+                font-weight: 800;
+                cursor: pointer;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        }
+    }
+}
