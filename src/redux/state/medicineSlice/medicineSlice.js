@@ -6,7 +6,11 @@ const fetchMedicines = createAsyncThunk(
   "medicines/fetchMedicines",
   async () => {
     try {
-      const response = await axios.get(`${backendurl}/medicine/medicines`);
+      const api = axios.create({
+        baseURL: backendurl,
+      });
+      const response = await api.get("/medicine/medicines");
+
       return response.data;
     } catch (error) {
       throw error;
