@@ -34,11 +34,13 @@ const MedicineList = () => {
   const visibleMedicineData = medicines.slice(0, selectValue);
   /////////////////// Change Text Value/////////////////////////////
 
-  const filteredMedicineData = visibleMedicineData.filter(
-    (medicines) =>
-      medicines.medicinename &&
-      medicines.medicinename.toLowerCase().includes(searchs.toLowerCase())
-  );
+  const filteredMedicineData = Array.isArray(visibleMedicineData)
+    ? visibleMedicineData.filter(
+        (medicines) =>
+          medicines.medicinename &&
+          medicines.medicinename.toLowerCase().includes(searchs.toLowerCase())
+      )
+    : [];
 
   console.log(filteredMedicineData);
 
@@ -71,8 +73,6 @@ const MedicineList = () => {
       toast.error(error);
     }
   };
-
-  // Calculate Expire date
 
   return (
     <section>

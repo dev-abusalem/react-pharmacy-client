@@ -1,17 +1,21 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+const backendurl = process.env.BACKEND_URL;
 
-const fetchMedicines = createAsyncThunk('medicines/fetchMedicines', async () => {
-  try {
-    const response = await axios.get('/medicine/medicines');
-    return response.data;
-  } catch (error) {
-    throw error;
+const fetchMedicines = createAsyncThunk(
+  "medicines/fetchMedicines",
+  async () => {
+    try {
+      const response = await axios.get(`${backendurl}/medicine/medicines`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
-});
+);
 
 const medicineSlice = createSlice({
-  name: 'medicines',
+  name: "medicines",
   initialState: {
     isLoading: false,
     medicines: [],
@@ -29,7 +33,6 @@ const medicineSlice = createSlice({
       .addCase(fetchMedicines.fulfilled, (state, action) => {
         state.isLoading = false;
         state.medicines = action.payload;
-
       })
       .addCase(fetchMedicines.rejected, (state, action) => {
         state.isLoading = false;
