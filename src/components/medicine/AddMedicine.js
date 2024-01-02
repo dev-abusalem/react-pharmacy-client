@@ -196,7 +196,7 @@ const handleImageChange = (e) => {
                 <option>Select An Option</option>
 
                   {
-                    cate.map((cat,i)=>{
+                    cate?.map((cat,i)=>{
                         return <option value={cat.catename} key={i}>{cat.catename}</option>
                     })
                   }
@@ -210,7 +210,7 @@ const handleImageChange = (e) => {
                 <option>Select An Option</option>
 
                   {
-                    types.map((type,i)=>{
+                    types?.map((type,i)=>{
                         return <option value={type.typename} key={i}>{type.typename}</option>
                     })
                   }
@@ -338,7 +338,7 @@ const handleImageChange = (e) => {
                 </label>
                 <select onChange={(e)=>setMunit(e.target.value)} id="medicineunit">
                 <option>Select An Option</option>                  {
-                    units.map((unit,i)=>{
+                    units?.map((unit,i)=>{
                         return <option value={unit.unitname} key={i}>{unit.unitname}</option>
                     })
                   }
