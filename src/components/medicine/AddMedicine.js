@@ -7,13 +7,10 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
 function AddMedicine() {
-  const [cate, setCate] = useState(null);
-  const [units, setUnit] = useState(null);
-  const [types, setType] = useState(null);
+  const [cate, setCate] = useState([]);
+  const [units, setUnit] = useState([]);
+  const [types, setType] = useState([]);
 
-  // State of change value of select tag
-  const [unitValue, setUnitValue] = useState(null);
-  const [cateValue, setCateValue] = useState(null);
   //fullname,email1,phone,address1,state,country,mobile,email2,contact,address2,city,zip
   const [barcode, setBarcode] = useState("");
   const [strength, setStrength] = useState("");
@@ -216,17 +213,14 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {cate ? (
+                  {cate &&
                     cate.map((cat, i) => {
                       return (
                         <option value={cat.catename} key={i}>
                           {cat.catename}
                         </option>
                       );
-                    })
-                  ) : (
-                    <option>Loading......</option>
-                  )}
+                    })}
                 </select>
               </div>
 
@@ -238,17 +232,14 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {types ? (
+                  {types &&
                     types.map((type, i) => {
                       return (
                         <option value={type.typename} key={i}>
                           {type.typename}
                         </option>
                       );
-                    })
-                  ) : (
-                    <option>Loading......</option>
-                  )}
+                    })}
                 </select>
               </div>
 
@@ -368,17 +359,14 @@ function AddMedicine() {
                   id="medicineunit"
                 >
                   <option>Select An Option</option>{" "}
-                  {units ? (
+                  {units &&
                     units.map((unit, i) => {
                       return (
                         <option value={unit.unitname} key={i}>
                           {unit.unitname}
                         </option>
                       );
-                    })
-                  ) : (
-                    <option>Loading......</option>
-                  )}
+                    })}
                 </select>
               </div>
 
