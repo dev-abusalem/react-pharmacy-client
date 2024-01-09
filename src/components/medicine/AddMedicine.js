@@ -213,7 +213,7 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {cate &&
+                  {!loading &&
                     cate.map((cat, i) => {
                       return (
                         <option value={cat.catename} key={i}>
@@ -232,7 +232,7 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {types &&
+                  {!loading &&
                     types.map((type, i) => {
                       return (
                         <option value={type.typename} key={i}>
@@ -359,7 +359,7 @@ function AddMedicine() {
                   id="medicineunit"
                 >
                   <option>Select An Option</option>{" "}
-                  {units &&
+                  {!loading &&
                     units.map((unit, i) => {
                       return (
                         <option value={unit.unitname} key={i}>
