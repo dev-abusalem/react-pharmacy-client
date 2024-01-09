@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import imgpreview from "../../assets/images/avater.jpg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-
+import HashLoader from "react-spinners/HashLoader";
 function AddMedicine() {
-  const [cate, setCate] = useState([]);
-  const [units, setUnit] = useState([]);
-  const [types, setType] = useState([]);
+  const [cate, setCate] = useState(null);
+  const [units, setUnit] = useState(null);
+  const [types, setType] = useState(null);
 
   // State of change value of select tag
   const [unitValue, setUnitValue] = useState(null);
@@ -33,7 +33,7 @@ function AddMedicine() {
   const [manufacprice, setManufacPrice] = useState("");
   const [igta, setIGTA] = useState("");
   const [expairDate, setExpairDate] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const [previousMphoto, setPreviousMphoto] = useState(null);
   // image and form submit
 
@@ -85,29 +85,33 @@ function AddMedicine() {
   };
 
   // upload medicine image
-
   const showAllCate = async () => {
     const res = await axios.get("/medicine/cate");
     setCate(res.data);
   };
-  useEffect(() => {
-    showAllCate();
-  }, []);
-
-  const showAllUnit = async () => {
-    const res = await axios.get("/medicine/unit");
-    setUnit(res.data);
-  };
-  useEffect(() => {
-    showAllUnit();
-  }, []);
-
   const showAllType = async () => {
     const res = await axios.get("/medicine/type");
     setType(res.data);
   };
+  const showAllUnit = async () => {
+    const res = await axios.get("/medicine/unit");
+    setUnit(res.data);
+  };
+
   useEffect(() => {
-    showAllType();
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        await showAllCate();
+        await showAllUnit();
+        await showAllType();
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchData();
   }, []);
 
   // Use the uploaded image path in your main request
@@ -122,6 +126,22 @@ function AddMedicine() {
       reader.readAsDataURL(file);
     }
   };
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "50vh",
+        }}
+      >
+        <HashLoader color="#36d7b7" />
+      </div>
+    );
+  }
+
   return (
     <section>
       <ToastContainer />
