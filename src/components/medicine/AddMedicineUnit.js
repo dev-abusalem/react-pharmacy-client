@@ -3,27 +3,27 @@ import React, { useState } from "react";
 import { GoThreeBars } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-
+import { BASE_URL } from "../../config/url-manager";
 
 const AddMedicineUnit = () => {
   const [status, setStatus] = useState("Active");
   const [unitname, setUnitName] = useState("");
 
-
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const res = await axios.post("/medicine/unit/add",
-      {unitname:unitname,status:status}
-      );
+      const res = await axios.post(`${BASE_URL}/medicine/unit/add`, {
+        unitname: unitname,
+        status: status,
+      });
 
       toast.success(res.data);
-      setUnitName("")
+      setUnitName("");
     } catch (error) {
       toast.error(error.response.data);
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <section>
@@ -50,7 +50,7 @@ const AddMedicineUnit = () => {
                   placeholder="Medicine Unit Name"
                   type="text"
                   id="medicinetype"
-                  onChange={(e)=>setUnitName(e.target.value)}
+                  onChange={(e) => setUnitName(e.target.value)}
                   required
                   value={unitname}
                 />
@@ -79,8 +79,7 @@ const AddMedicineUnit = () => {
                       id="active"
                       name="status"
                       value="active"
-                      onChange={(e)=>setStatus(e.target.value)}
-
+                      onChange={(e) => setStatus(e.target.value)}
                     />
                   </div>
                   <div
@@ -95,8 +94,7 @@ const AddMedicineUnit = () => {
                       id="inactive"
                       name="status"
                       value="inactive"
-                      onChange={(e)=>setStatus(e.target.value)}
-
+                      onChange={(e) => setStatus(e.target.value)}
                     />
                   </div>
                 </div>

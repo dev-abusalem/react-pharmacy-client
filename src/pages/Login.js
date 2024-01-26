@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${BASE_URL}auth/login`, {
+      const res = await axios.post(`${BASE_URL}/auth/login`, {
         email: email,
         password: password,
       });
@@ -29,6 +29,7 @@ const Login = () => {
       }, 5000);
     } catch (error) {
       toast.error(error.response.data);
+      console.log(error);
     }
   };
 
@@ -37,14 +38,14 @@ const Login = () => {
       <ToastContainer />
       <div className="login_overlay">
         <div className="login_wrapper">
-          <div class="background">
-            <div class="shape"></div>
-            <div class="shape"></div>
+          <div className="background">
+            <div className="shape"></div>
+            <div className="shape"></div>
           </div>
           <form onSubmit={handleSubmit}>
             <h3>LOGIN</h3>
             <div>
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 placeholder="Email"
@@ -52,7 +53,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 placeholder="Password"
@@ -62,7 +63,7 @@ const Login = () => {
             </div>
 
             <button type="submit">LOGIN</button>
-            <div class="social"></div>
+            <div className="social"></div>
           </form>
         </div>
       </div>

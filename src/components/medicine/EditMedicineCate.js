@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { GoThreeBars } from "react-icons/go";
 import { Link } from "react-router-dom";
 
-
 const EditMedicineCate = () => {
-    const [status, setStatus] = useState("Active");
+  const [status, setStatus] = useState("Active");
 
   return (
     <section>
@@ -56,8 +55,7 @@ const EditMedicineCate = () => {
                       id="active"
                       name="status"
                       value="active"
-                      onChange={(e)=>setStatus(e.target.value)}
-
+                      onChange={(e) => setStatus(e.target.value)}
                     />
                   </div>
                   <div
@@ -72,8 +70,7 @@ const EditMedicineCate = () => {
                       id="inactive"
                       name="status"
                       value="inactive"
-                      onChange={(e)=>setStatus(e.target.value)}
-
+                      onChange={(e) => setStatus(e.target.value)}
                     />
                   </div>
                 </div>

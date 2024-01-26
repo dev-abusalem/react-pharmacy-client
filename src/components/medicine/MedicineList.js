@@ -12,11 +12,11 @@ import { ThreeDots } from "react-loader-spinner";
 import { fetchMedicines } from "../../redux/state/medicineSlice/medicineSlice"; // Your medicineSlice file
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { BASE_URL } from "../../config/url-manager";
 
 const MedicineList = () => {
   const medicines = useSelector((state) => state.medicines.medicines);
   const loading = useSelector((state) => state.medicines.isLoading);
-  const backendurl = process.env.BACKEND_URL;
 
   const [selectValue, setSelectValue] = useState(10);
   const [searchs, setSearchs] = useState("");
@@ -59,7 +59,7 @@ const MedicineList = () => {
       });
 
       if (result.isConfirmed) {
-        const res = await axios.delete(`${backendurl}/medicine/medicine/${id}`);
+        const res = await axios.delete(`${BASE_URL}/medicine/medicine/${id}`);
 
         Swal.fire(res.data);
 

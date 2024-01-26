@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${BASE_URL}auth/register`, {
+      const res = await axios.post(`${BASE_URL}/auth/register`, {
         name: name,
         email: email,
         password: password,
@@ -27,7 +27,7 @@ const Register = () => {
         navigate("/login");
       }, 5000);
     } catch (error) {
-      toast.error(error.response.data);
+      console.log(error);
     }
   };
 
@@ -36,14 +36,14 @@ const Register = () => {
       <ToastContainer />
       <div className="login_overlay">
         <div className="login_wrapper">
-          <div class="background">
-            <div class="shape"></div>
-            <div class="shape"></div>
+          <div className="background">
+            <div className="shape"></div>
+            <div className="shape"></div>
           </div>
           <form onSubmit={handleSubmit}>
             <h3>REGISTER</h3>
             <div>
-              <label for="name">Full Name</label>
+              <label htmlFor="name">Full Name</label>
               <input
                 onChange={(e) => setName(e.target.value)}
                 type="name"
@@ -51,7 +51,7 @@ const Register = () => {
                 id="name"
               />
 
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
@@ -59,7 +59,7 @@ const Register = () => {
                 id="email"
               />
 
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
@@ -69,7 +69,7 @@ const Register = () => {
             </div>
 
             <button type="submit">REGISTER</button>
-            <div class="social"></div>
+            <div className="social"></div>
           </form>
         </div>
       </div>
