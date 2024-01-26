@@ -219,15 +219,15 @@ function AddMedicine() {
                     id="medicinecate"
                   >
                     <option>Select An Option</option>
-                    {/* 
-                      {cate.length > 0 &&
-                        cate.map((cat, i) => {
-                          return (
-                            <option value={cat?.catename} key={i}>
-                              {cat?.catename}
-                            </option>
-                          );
-                        })} */}
+
+                    {cate.length > 0 &&
+                      cate.map((cat, i) => {
+                        return (
+                          <option value={cat?.catename} key={i}>
+                            {cat?.catename}
+                          </option>
+                        );
+                      })}
                   </select>
                 </div>
 
@@ -238,14 +238,14 @@ function AddMedicine() {
                     id="medicinecate"
                   >
                     <option>Select An Option</option>
-                    {/* {types.length > 0 &&
-                        types?.map((type, i) => {
-                          return (
-                            <option value={type?.typename} key={i}>
-                              {type?.typename}
-                            </option>
-                          );
-                        })} */}
+                    {types.length > 0 &&
+                      types?.map((type, i) => {
+                        return (
+                          <option value={type?.typename} key={i}>
+                            {type?.typename}
+                          </option>
+                        );
+                      })}
                   </select>
                 </div>
 
