@@ -27,15 +27,14 @@ const CustomerList = () => {
   const totalCustomer = useSelector((state) => state.customers.customers);
   const dispatch = useDispatch();
   useEffect(() => {
-    // Dispatch the fetchMedicines action when the component mounts
     dispatch(fetchCustomers());
-  }, [dispatch]); // Ensure that the action is dispatched only once
+  }, [dispatch]);
 
   /////////////////// Change Seletc Value/////////////////////////////
   function handleChange(e) {
     setSelectValue(parseInt(e.target.value));
   }
-  const visibleCustomerData = totalCustomer.slice(0, selectValue);
+  const visibleCustomerData = totalCustomer?.slice(0, selectValue);
   /////////////////// Change Text Value/////////////////////////////
 
   const filteredCustomerData = visibleCustomerData.filter(
