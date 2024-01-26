@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { BASE_URL } from "../../../config/url-manager";
 const backendurl = process.env.BACKEND_URL;
 
 const fetchMedicines = createAsyncThunk(
@@ -7,9 +8,9 @@ const fetchMedicines = createAsyncThunk(
   async () => {
     try {
       const api = axios.create({
-        baseURL: backendurl,
+        baseURL: BASE_URL,
       });
-      const response = await api.get("/medicine/medicines");
+      const response = await api.get(`${BASE_URL}/medicine/medicines`);
 
       return response.data;
     } catch (error) {

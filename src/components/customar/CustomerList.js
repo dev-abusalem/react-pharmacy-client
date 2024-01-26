@@ -186,7 +186,13 @@ const CustomerList = () => {
                           <td>
                             <div className="table_action_button">
                               <Link to={`/customer/edit/${customer._id}`}>
-                                <FiEdit />
+                                <FiEdit
+                                  className=" text-white"
+                                  style={{
+                                    border: "none",
+                                    background: "orange",
+                                  }}
+                                />
                               </Link>
                               <Link
                                 to="#"
@@ -197,7 +203,7 @@ const CustomerList = () => {
                                   })
                                 }
                               >
-                                <MdDelete />
+                                <MdDelete style={{ border: "1px" }} />
                               </Link>
                             </div>
                           </td>

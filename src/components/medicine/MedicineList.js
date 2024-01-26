@@ -34,13 +34,11 @@ const MedicineList = () => {
   const visibleMedicineData = medicines.slice(0, selectValue);
   /////////////////// Change Text Value/////////////////////////////
 
-  const filteredMedicineData = Array.isArray(visibleMedicineData)
-    ? visibleMedicineData.filter(
-        (medicines) =>
-          medicines.medicinename &&
-          medicines.medicinename.toLowerCase().includes(searchs.toLowerCase())
-      )
-    : [];
+  const filteredMedicineData = visibleMedicineData.filter(
+    (medicines) =>
+      medicines.medicinename &&
+      medicines.medicinename.toLowerCase().includes(searchs.toLowerCase())
+  );
 
   console.log(filteredMedicineData);
 
@@ -166,8 +164,8 @@ const MedicineList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredMedicineData.map((medicine, i) => {
-                    const imageUrl = medicine.mfeatureimage;
+                  {filteredMedicineData?.map((medicine, i) => {
+                    const imageUrl = medicine?.mfeatureimage;
                     const isImageAvailable = !!imageUrl;
                     console.log(imageUrl);
                     let warning = false;
@@ -176,33 +174,33 @@ const MedicineList = () => {
                     return (
                       <tr key={i}>
                         <th scope="row">{i + 1}</th>
-                        <td>{medicine.medicinename}</td>
-                        <td>{medicine.medicineprice}</td>
-                        <td>{medicine.mcategory}</td>
-                        <td>{medicine.medicinetype}</td>
-                        <td>{medicine.munit}</td>
-                        <td>{medicine.manufacturer}</td>
-                        <td>{medicine.shelf}</td>
-                        <td>{medicine.genericname}</td>
-                        <td>{medicine.status}</td>
+                        <td>{medicine?.medicinename}</td>
+                        <td>{medicine?.medicineprice}</td>
+                        <td>{medicine?.mcategory}</td>
+                        <td>{medicine?.medicinetype}</td>
+                        <td>{medicine?.munit}</td>
+                        <td>{medicine?.manufacturer}</td>
+                        <td>{medicine?.shelf}</td>
+                        <td>{medicine?.genericname}</td>
+                        <td>{medicine?.status}</td>
                         <td>
                           {warning ? (
                             <strong style={{ color: "orange" }}>
-                              {medicine.expairDate}
+                              {medicine?.expairDate}
                             </strong>
-                          ) : <strong>{medicine.expairDate}</strong> &&
+                          ) : <strong>{medicine?.expairDate}</strong> &&
                             expired ? (
                             <strong style={{ color: "red" }}>
-                              {medicine.expairDate}
+                              {medicine?.expairDate}
                             </strong>
                           ) : (
-                            <strong>{medicine.expairDate}</strong>
+                            <strong>{medicine?.expairDate}</strong>
                           )}
                         </td>
                         <td>
                           <img
                             src={isImageAvailable}
-                            alt={medicine.medicinename}
+                            alt={medicine?.medicinename}
                             style={{ width: "50px" }}
                           />
                         </td>
@@ -212,8 +210,8 @@ const MedicineList = () => {
                             <MdDelete
                               onClick={() =>
                                 handleDeleteMedicine({
-                                  id: medicine._id,
-                                  medicinename: medicine.medicinename,
+                                  id: medicine?._id,
+                                  medicinename: medicine?.medicinename,
                                 })
                               }
                             />
