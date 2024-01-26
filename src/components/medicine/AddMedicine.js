@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import HashLoader from "react-spinners/HashLoader";
+import { BASE_URL } from "../../config/url-manager";
 function AddMedicine() {
   const [cate, setCate] = useState([]);
   const [units, setUnit] = useState([]);
@@ -47,7 +48,7 @@ function AddMedicine() {
     setPreviousMphoto(imageUploadResponse.data);
 
     try {
-      const res = await axios.post("/medicine/medicine/add", {
+      const res = await axios.post(`${BASE_URL}/medicine/medicine/add`, {
         barcode: barcode,
         strength: strength,
         boxsize: boxsize,
@@ -79,7 +80,7 @@ function AddMedicine() {
     const showAllCate = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/medicine/cate");
+        const res = await axios.get(`${BASE_URL}/medicine/cate`);
         setCate(res.data);
         setLoading(false);
       } catch (error) {
@@ -93,7 +94,7 @@ function AddMedicine() {
     const showAllType = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/medicine/type");
+        const res = await axios.get(`${BASE_URL}/medicine/type`);
         setType(res.data);
         setLoading(false);
       } catch (error) {
@@ -107,7 +108,7 @@ function AddMedicine() {
     const showAllUnit = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/medicine/unit");
+        const res = await axios.get(`${BASE_URL}/medicine/unit`);
         setUnit(res.data);
         setLoading(false);
       } catch (error) {
