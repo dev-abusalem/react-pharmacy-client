@@ -366,14 +366,14 @@ function AddMedicine() {
                     id="medicineunit"
                   >
                     <option>Select An Option</option>{" "}
-                    {/* {units.length > 0 &&
-                        units?.map((unit, i) => {
-                          return (
-                            <option value={unit?.unitname} key={i}>
-                              {unit?.unitname}
-                            </option>
-                          );
-                        })} */}
+                    {units.length > 0 &&
+                      units?.map((unit, i) => {
+                        return (
+                          <option value={unit?.unitname} key={i}>
+                            {unit?.unitname}
+                          </option>
+                        );
+                      })}
                   </select>
                 </div>
 
