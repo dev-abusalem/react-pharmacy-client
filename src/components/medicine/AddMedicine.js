@@ -11,6 +11,7 @@ function AddMedicine() {
   const [units, setUnit] = useState([]);
   const [types, setType] = useState([]);
 
+  console.log(cate);
   //fullname,email1,phone,address1,state,country,mobile,email2,contact,address2,city,zip
   const [barcode, setBarcode] = useState("");
   const [strength, setStrength] = useState("");
@@ -213,11 +214,11 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {!loading &&
-                    cate.map((cat, i) => {
+                  {cate &&
+                    cate?.map((cat, i) => {
                       return (
-                        <option value={cat.catename} key={i}>
-                          {cat.catename}
+                        <option value={cat?.catename} key={i}>
+                          {cat?.catename}
                         </option>
                       );
                     })}
@@ -232,11 +233,11 @@ function AddMedicine() {
                 >
                   <option>Select An Option</option>
 
-                  {!loading &&
-                    types.map((type, i) => {
+                  {types &&
+                    types?.map((type, i) => {
                       return (
-                        <option value={type.typename} key={i}>
-                          {type.typename}
+                        <option value={type?.typename} key={i}>
+                          {type?.typename}
                         </option>
                       );
                     })}
@@ -359,11 +360,11 @@ function AddMedicine() {
                   id="medicineunit"
                 >
                   <option>Select An Option</option>{" "}
-                  {!loading &&
-                    units.map((unit, i) => {
+                  {units &&
+                    units?.map((unit, i) => {
                       return (
-                        <option value={unit.unitname} key={i}>
-                          {unit.unitname}
+                        <option value={unit?.unitname} key={i}>
+                          {unit?.unitname}
                         </option>
                       );
                     })}
