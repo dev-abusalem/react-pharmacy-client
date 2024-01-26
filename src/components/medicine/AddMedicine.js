@@ -39,11 +39,15 @@ function AddMedicine() {
 
     const formData = new FormData();
     formData.append("mimage", previousMphoto);
-    const imageUploadResponse = await axios.post("/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data", // Important for file uploads
-      },
-    });
+    const imageUploadResponse = await axios.post(
+      `${BASE_URL}/upload`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data", // Important for file uploads
+        },
+      }
+    );
 
     setPreviousMphoto(imageUploadResponse.data);
 

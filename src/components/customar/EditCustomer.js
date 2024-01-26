@@ -78,7 +78,7 @@ function EditCustomer() {
       toast.success(res.data);
 
       setTimeout(() => {
-        window.location.replace(`${BASE_URL}/customer/list`);
+        window.location.replace(`/customer/list`);
       }, 3000);
     } catch (error) {
       console.log(error);
