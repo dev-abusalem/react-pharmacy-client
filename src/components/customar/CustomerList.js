@@ -90,14 +90,14 @@ const CustomerList = () => {
                 <AiOutlinePlus />
                 <Link to="/customer/add">Add Customer</Link>
               </div>
-              {/* <div className="button_wrapper">
+              <div className="button_wrapper">
                 <GoThreeBars />
                 <Link to="/customer/paid">Paid Customar</Link>
               </div>
               <div className="button_wrapper">
                 <GoThreeBars />
                 <Link to="/customer/credit">Credit Customar</Link>
-              </div> */}
+              </div>
             </div>
           </div>
           {/* container header end */}
@@ -174,36 +174,37 @@ const CustomerList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredCustomerData.map((customer, i) => {
-                    return (
-                      <tr key={i}>
-                        <th scope="row">{i + 1}</th>
-                        <td>{customer.fullname}</td>
-                        <td>{customer.mobile}</td>
-                        <td>{customer.email1}</td>
-                        <td>{customer.address1}</td>
-                        <td>{customer.city}</td>
-                        <td>
-                          <div className="table_action_button">
-                            <Link to={`/customer/edit/${customer._id}`}>
-                              <FiEdit />
-                            </Link>
-                            <Link
-                              to="#"
-                              onClick={() =>
-                                handleDeleteCustomer({
-                                  id: customer._id,
-                                  fullname: customer.fullname,
-                                })
-                              }
-                            >
-                              <MdDelete />
-                            </Link>
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {filteredCustomerData.length > 0 &&
+                    filteredCustomerData.map((customer, i) => {
+                      return (
+                        <tr key={i}>
+                          <th scope="row">{i + 1}</th>
+                          <td>{customer.fullname}</td>
+                          <td>{customer.mobile}</td>
+                          <td>{customer.email1}</td>
+                          <td>{customer.address1}</td>
+                          <td>{customer.city}</td>
+                          <td>
+                            <div className="table_action_button">
+                              <Link to={`/customer/edit/${customer._id}`}>
+                                <FiEdit />
+                              </Link>
+                              <Link
+                                to="#"
+                                onClick={() =>
+                                  handleDeleteCustomer({
+                                    id: customer._id,
+                                    fullname: customer.fullname,
+                                  })
+                                }
+                              >
+                                <MdDelete />
+                              </Link>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
                 </tbody>
               </table>
             </div>
