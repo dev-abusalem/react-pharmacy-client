@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "./scss/login.scss";
+import { BASE_URL } from "../config/url-manager";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,13 +14,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "https://medicine-server-l5vd.onrender.com/auth/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
+      const res = await axios.post(`${BASE_URL}auth/login`, {
+        email: email,
+        password: password,
+      });
 
       toast.success(res.data.message);
       localStorage.setItem("token", res.data.token);
